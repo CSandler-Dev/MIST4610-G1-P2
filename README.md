@@ -13,12 +13,20 @@ This will be used for our tableau visualization group project.
 https://www.kaggle.com/datasets/adampq/coffee-quality-with-locations-of-origin?select=Coffee_Qlty_By_Country.csv
 
 ### Description of dataset
-  The "Coffee Quality with Locations of Origin" dataset provides a comprehensive overview of Arabica coffee samples from around the world. It contains 1,318 rows and 28 columns, where each row represents a unique coffee sample that has been evaluated and graded by professional coffee tasters. The dataset was compiled by the Coffee Quality Institute and includes both sensory evaluation scores and metadata about the coffee’s origin and characteristics.
-  The columns in the dataset include detailed sensory scores such as Aroma, Flavor, Aftertaste, Acidity, Body, Balance, Uniformity, Sweetness, Clean Cup, all recorded as numeric values on a 0–10 scale. In addition, it includes categorical and text fields like Country of Origin, Continent of Origin, Variety, and Processing Method, which provide contextual information about where and how the coffee was grown and processed. 
-  Overall, the dataset is a rich source for exploring patterns in coffee quality, regional differences in coffee characteristics, and factors that contribute to high-scoring coffee, making it valuable for data analysts, coffee professionals, and enthusiasts alike.
+  The "Coffee Quality with Locations of Origin" data set provides a comprehensive overview of Arabica and Robusta coffee samples from around the world. The data set contains 1,318 rows and 28 columns, and each row represents a unique coffee sample that has been graded and evaluated and graded by expert coffee tasters. The data set was compiled by the Coffee Quality Institute and includes both coffees' sensory evaluation values and metadata about the coffee’s origin.
+  The columns in the data include detailed sensory scores such as Aroma, Flavor, Aftertaste, Acidity, Body, Balance, Uniformity, Sweetness, all scored as numerical values ranging from 0 to 10 scale. The data set also includes categorical and text fields like Country of Origin, Continent of Origin, Variety, and Processing Method, which provide descriptive information about where and in what way the coffee was grown and processed. 
+  Overall, the dataset is a rich source for exploring patterns in coffee quality, regional variability in coffee characteristics, and factors behind high-scoring coffee, making it valuable for data analysts and coffee enthusiasts alike.
 
 ### Questions generated
+1) How does the average coffee quality vary across countries of origin for Arabica coffee, and how trade strategies are formed due to geographic patterns?
+  Significance 
+- Highlights global variations in coffee quality, which is critical for trade, marketing, and sourcing decisions.
+- Combines sensory attributes into a single metric for a comprehensive quality assessment.
+- Has economic implications for exporters and importers in the global coffee market.
 
 ### Manipulation applied to the data set as a part of analyis 
-
+Question 1:
+- Created a calculated field combinining the attributes: Aroma, Flavor, Aftertaste, Acidity, Body, Balance, which created the combined sensory score.
+- Filtered the species so only data for Arabica coffee would be presented.
+- 
 ### Analysis and Results
