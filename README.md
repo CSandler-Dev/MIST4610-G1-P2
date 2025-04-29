@@ -65,7 +65,7 @@ Given the scattered and uncoordinated nature of the datasets we pulled together,
    Lasso those bubbles → `High_CQE_Set` for drill-down.
 
 3. **Process vs Price Mini-Scatter** (faceted by Process)  
-   → Natural lots in Ethiopia & Kenya sit **+0.8 WSS at same price**; Honey in Costa Rica shows higher price, flat WSS.
+   → Natural lots in Ethiopia & Kenya sit **+0.8 WSS at the same price**; Honey in Costa Rica shows a higher price, flat WSS.
 
 4. **Flavour Z-Score Bars** (filtered by country & process)  
    → Natural Ethiopians **+1.6 σ Aroma, +1.4 σ Sweetness**; Honey adds Body in Costa Rica but only +0.3 σ.
@@ -86,7 +86,7 @@ These steps shaped our final questions and the insights we were able to derive f
 
 #### **Why it matters**  
 * Gives roasters a short-list of origins that maximise quality per dollar.  
-* Altitude overlay shows most top-CQE origins sit in the *High (>1 600 m)* band, validating the terroir narrative buyers use in marketing.
+* Altitude overlay shows most top-CQE origins sit in the *High (>1,600 m)* band, validating the terroir narrative buyers use in marketing.
 
 ---
 
@@ -105,12 +105,12 @@ These steps shaped our final questions and the insights we were able to derive f
 * Lets buyers decide whether paying a *process premium* is justified.  
 * Example from our workbook: Natural Ethiopians gain ≈ +0.8 Aroma & +0.6 Sweetness at the **same \$6 /kg** price, while Honey lots in Costa Rica raise cost but add little lift.
 
-*Together, these questions move from a strategic view (which origins to source) to an operational one (which process to request), demonstrating how merged price-quality-altitude data translates into actionable sourcing advice.*
+*Together, these questions move from a strategic view (which origins to source) to an operational one (which processes to request), demonstrating how merged price-quality-altitude data translates into actionable sourcing advice.*
 
 ---
 
 ## 7 | Visualization
 
-Instead of providing screenshots here, our Dashboard visuialization is on Tableau Public to preserve its interactive nature
+Instead of providing screenshots here, our Dashboard visualization is on Tableau Public to preserve its interactive nature
 
 # [Click Here To Explore Our Visualization ](https://public.tableau.com/shared/XRMHFSDX5?:display_count=n&:origin=viz_share_link)
