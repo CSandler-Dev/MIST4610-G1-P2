@@ -9,9 +9,9 @@
 ## 2 | Data Discovery & Initial Work
 
 ### Description of datasets & join choices
-  The "Coffee Quality with Locations of Origin" data set provides a comprehensive overview of Arabica and Robusta coffee samples from around the world. The data set contains 1,318 rows and 28 columns, and each row represents a unique coffee sample that has been graded and evaluated and graded by expert coffee tasters. The data set was compiled by the Coffee Quality Institute and includes both coffees' sensory evaluation values and metadata about the coffee’s origin.
+  The "Coffee Quality with Locations of Origin" data set provides a comprehensive overview of Arabica and Robusta coffee samples from around the world. The data set contains 1,318 rows and 28 columns, and each row represents a unique coffee sample that has been graded and evaluated by expert coffee tasters. The data set was compiled by the Coffee Quality Institute and includes both coffees' sensory evaluation values and metadata about the coffee’s origin.
   
-  This dataset is incredibly rich with datapoints however, we we're having issues deriving interesting insights into the data. As such, we decided to also encorporate export information (by country) from the UN Comtrade on coffee export volume and cost (adjusted to USD) as a comparison point. We also decided to include an altitude dataset to retrieve the average elevations of the countries we're exploring as a further explanatory variable. The goal is to connect the taste data to real world implications.
+  This dataset is incredibly rich with datapoints however, we ran into issues deriving interesting insights into the data. As such, we decided to also incorporate export information (by country) from the UN Comtrade on coffee export volume and cost (adjusted to USD) as a comparison point. We also decided to include an altitude dataset to retrieve the average elevations of the countries we're exploring as a further explanatory variable. The goal is to connect the taste data to real-world implications.
 
 ### Datasets Used
 
@@ -21,17 +21,17 @@
 | 2 | **price_2018.csv** (UN Comtrade / WITS) | 34 × 4 after clean | Reporter Country, Trade Value (US$ 1000), Net-weight (kg) | Gives **actual 2018 market price** per origin—essential for a value metric. | [WITS 🔗](https://wits.worldbank.org/trade/comtrade/en/country/ALL/year/2018/tradeflow/Imports/partner/WLD/product/090111#)
 | 3 | **altitude_country.csv** (NASA SRTM + CIA) | 190 × 2 | Country, Mean Elevation (m) | Altitude is a well-known driver of Arabica quality; lets us test that belief. | [NASA 🔗](https://www.earthdata.nasa.gov/data/catalog)
 
-The finalized dataset we used for the visuialization is called **!joined_final.csv** and was cleaned, joined, and calculated from the three datasets above. We used the country to join the datasets.
+The finalized dataset we used for the visualization is called **!joined_final.csv** and was cleaned, joined, and calculated from the three datasets above. We used the country to join the datasets.
 
 ---
 
 ## 3 | What We’re Trying to Show
 
-Our data explores specialty coffee and their customers percieved opinions so, specialty roasters care about **quality per dollar**, not raw cupping scores. Given the incredibly expensive world of coffee cultivation, cross continent shipping, and sourcing, the best places to buy from coffee from are the countries that balance cost with quality.
+Our data explores specialty coffee and its customers' perceived opinions, so specialty roasters care about **quality per dollar**, not raw cupping scores. Given the incredibly expensive world of coffee cultivation, cross-continent shipping, and sourcing, the best places to buy coffee from are the countries that balance cost with quality.
 Our goal is to identify:
 
 1. **Origins** where high cup quality is **cheap** relative to peers. 
-2. **Conditions** where coffee grows best and possibly why coffee grown in certian countries is better.
+2. **Conditions** where coffee grows best, and possibly why coffee grown in certain countries is better.
 3. **Processing methods** that lead to the best key flavour attributes from the countries with the best coffee quality compared to price.
 
 ---
@@ -55,11 +55,11 @@ After cleaning we keep **851 rows across 14+ origins** with 0 % nulls in price, 
 
 ## 5 | Chain of Data Exploration
 
-Given the scattered and uncoordinated nature of the datasets we pulled together, we explored the data in layers which was formative to our understanding of the data.
+Given the scattered and uncoordinated nature of the datasets we pulled together, we explored the data in layers, which was formative to our understanding of the data.
 
 1. **CQE Scatter (Median WSS vs. Median Price)**  
    *Bubble size = sample count, colour = AltitudeBand.*  
-   → Ethiopia, Guatemala, Colombia emerge as **high-altitude, high-CQE “sweet-spots.”**
+   → Ethiopia, Guatemala, and Colombia emerge as **high-altitude, high-CQE “sweet-spots.”**
 
 2. **High-CQE Set**  
    Lasso those bubbles → `High_CQE_Set` for drill-down.
@@ -70,7 +70,7 @@ Given the scattered and uncoordinated nature of the datasets we pulled together,
 4. **Flavour Z-Score Bars** (filtered by country & process)  
    → Natural Ethiopians **+1.6 σ Aroma, +1.4 σ Sweetness**; Honey adds Body in Costa Rica but only +0.3 σ.
 
-These steps shaped our final questions and the insights we we're able to derive from the dataset:
+These steps shaped our final questions and the insights we were able to derive from the dataset:
 
 ---
 
