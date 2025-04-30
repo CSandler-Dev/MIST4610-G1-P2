@@ -9,7 +9,7 @@
 ## 2 | Data Discovery & Initial Work
 
 ### Description of datasets & join choices
-  The "Coffee Quality with Locations of Origin" data set provides a comprehensive overview of Arabica and Robusta coffee samples from around the world. The data set contains 1,318 rows and 28 columns, and each row represents a unique coffee sample that has been graded and evaluated by expert coffee tasters. The data set was compiled by the Coffee Quality Institute and includes both coffees' sensory evaluation values and metadata about the coffee’s origin.
+  The "Coffee Quality with Locations of Origin" dataset provides a comprehensive overview of Arabica and Robusta coffee samples from around the world. The dataset contains 1,318 rows and 28 columns, and each row represents a unique coffee sample that has been graded and evaluated by expert coffee tasters. The dataset was compiled by the Coffee Quality Institute and includes both coffees' sensory evaluation values and metadata about the coffee’s origin.
   
   This dataset is incredibly rich with datapoints however, we ran into issues deriving interesting insights into the data. As such, we decided to also incorporate export information (by country) from the UN Comtrade on coffee export volume and cost (adjusted to USD) as a comparison point. We also decided to include an altitude dataset to retrieve the average elevations of the countries we're exploring as a further explanatory variable. The goal is to connect the taste data to real-world implications.
 
@@ -17,22 +17,22 @@
 
 | # | Dataset | Rows × Cols | Core Fields Kept | Why We Picked It | Link |
 |---|---------|-------------|------------------|------------------|----------|
-| 1 | **Coffee_Qlty.csv** (Kaggle) | 1 339 × 28 | Country, 9 sensory scores, defect counts, Processing Method | Only open cupping dataset with both flavour and origin metadata. | [Kaggle 🔗](https://www.kaggle.com/datasets/adampq/coffee-quality-with-locations-of-origin?select=Coffee_Qlty_By_Country.csv)
+| 1 | **Coffee_Qlty.csv** (Kaggle) | 1 339 × 28 | Country, 9 sensory scores, defect counts, Processing Method | Only open coffee dataset with both flavour and origin metadata. | [Kaggle 🔗](https://www.kaggle.com/datasets/adampq/coffee-quality-with-locations-of-origin?select=Coffee_Qlty_By_Country.csv)
 | 2 | **price_2018.csv** (UN Comtrade / WITS) | 34 × 4 after clean | Reporter Country, Trade Value (US$ 1000), Net-weight (kg) | Gives **actual 2018 market price** per origin—essential for a value metric. | [WITS 🔗](https://wits.worldbank.org/trade/comtrade/en/country/ALL/year/2018/tradeflow/Imports/partner/WLD/product/090111#)
 | 3 | **altitude_country.csv** (NASA SRTM + CIA) | 190 × 2 | Country, Mean Elevation (m) | Altitude is a well-known driver of Arabica quality; lets us test that belief. | [NASA 🔗](https://www.earthdata.nasa.gov/data/catalog)
 
-The finalized dataset we used for the visualization is called **!joined_final.csv** and was cleaned, joined, and calculated from the three datasets above. We used the country to join the datasets.
+The finalized dataset we used for the visualization is called **!joined_final.csv** and was cleaned, joined, and calculated from the three datasets above. To join the datasets we used country.
 
 ---
 
 ## 3 | What We’re Trying to Show
 
-Our data explores specialty coffee and its customers' perceived opinions, so specialty roasters care about **quality per dollar**, not raw cupping scores. Given the incredibly expensive world of coffee cultivation, cross-continent shipping, and sourcing, the best places to buy coffee from are the countries that balance cost with quality.
+Our data explores specialty coffee and its customers' perceived opinions, so specialty roasters care about **quality per dollar**, not raw scores. Given the incredibly expensive world of coffee cultivation, cross-continent shipping, and sourcing, the best places to buy coffee from are the countries that balance cost with quality.
 Our goal is to identify:
 
-1. **Origins** where high cup quality is **cheap** relative to peers. 
-2. **Conditions** where coffee grows best, and possibly why coffee grown in certain countries is better.
-3. **Processing methods** that lead to the best key flavour attributes from the countries with the best coffee quality compared to price.
+1. **Origins:** Where high coffee quality is **cheap** relative to peers. 
+2. **Conditions:** Where coffee grows best, and possibly why coffee grown in certain countries is better.
+3. **Processing Methods:** What methods lead to the best key flavour attributes from the countries with the best coffee quality compared to price.
 
 ---
 
@@ -40,11 +40,11 @@ Our goal is to identify:
 
 | Step | Action | Rationale |
 |------|--------|-----------|
-| 1. **Country harmonisation** | Created `country_std`; manual fixes for “Côte d’Ivoire”, “United States (Hawaii)”, etc. | Ensures 1-to-1 joins across tables. |
-| 2. **Price conversion** | `USD_per_kg = (TradeValue × 1000) / NetWeight` | WITS value is in thousands of USD. |
+| 1. **Country Harmonization** | Created `country_std`; manual fixes for “Côte d’Ivoire”, “United States (Hawaii)”, etc. | Ensures 1-to-1 joins across tables. |
+| 2. **Price Conversion** | `USD_per_kg = (TradeValue × 1000) / NetWeight` | WITS value is in thousands of USD. |
 | 3. **Kg vs Tonne bug fix** | If NetWeight \< 1 000 → already kg; else divide by 1 000. | Brazil & a few others reported tonnes. |
-| 4. **Outlier filter** | Dropped rows where price \< \$1.50/kg or \> \$40/kg | Removes remaining FOB anomalies. |
-| 5. **Processing bucket** | Regex → **Washed, Natural, Honey, Unknown** | Collapses 30+ raw strings. |
+| 4. **Outlier Filter** | Dropped rows where price \< \$1.50/kg or \> \$40/kg | Removes remaining FOB anomalies. |
+| 5. **Processing Bucket** | Regex → **Washed, Natural, Honey, Unknown** | Collapses 30+ raw strings. |
 | 6. **WSS (Weighted Sensory Score)** | Σ(Aroma…Sweetness + Uniformity + Clean Cup) – 0.5×Defects | CQI composite quality metric. |
 | 7. **CQE (Cost–Quality Efficiency)** | `WSS / USD_per_kg` | “Bang-for-buck” value indicator. |
 | 8. **AltitudeBand** | Low \< 1200 m · Mid 1200–1600 m · High \> 1600 m | Simplifies terroir comparison. |
@@ -55,7 +55,7 @@ After cleaning we keep **851 rows across 14+ origins** with 0 % nulls in price, 
 
 ## 5 | Chain of Data Exploration
 
-Given the scattered and uncoordinated nature of the datasets we pulled together, we explored the data in layers, which was formative to our understanding of the data.
+Given the scattered nature of the datasets we pulled together, we explored the data in layers, which was formative to our understanding of the data.
 
 1. **CQE Scatter (Median WSS vs. Median Price)**  
    *Bubble size = sample count, colour = AltitudeBand.*  
