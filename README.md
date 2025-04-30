@@ -47,7 +47,7 @@ Our goal is to identify:
 | 5. **Processing Bucket** | Regex → **Washed, Natural, Honey, Unknown** | Collapses 30+ raw strings. |
 | 6. **WSS (Weighted Sensory Score)** | Σ(Aroma…Sweetness + Uniformity + Clean Cup) – 0.5×Defects | CQI composite quality metric. |
 | 7. **CQE (Cost–Quality Efficiency)** | `WSS / USD_per_kg` | “Bang-for-buck” value indicator. |
-| 8. **AltitudeBand** | Low \< 1200 m · Mid 1200–1600 m · High \> 1600 m | Simplifies terroir comparison. |
+| 8. **Altitude Band** | Low \< 1200 m · Mid 1200–1600 m · High \> 1600 m | Simplifies terroir comparison. |
 
 After cleaning we keep **851 rows across 14+ origins** with 0 % nulls in price, altitude, or process fields.  
 
@@ -85,14 +85,14 @@ These steps shaped our final questions and the insights we were able to derive f
 * **Interactive set** – lassoing the high-value quadrant creates **High_CQE_Set** for drill-downs.
 
 #### **Why it matters**  
-* Gives roasters a short-list of origins that maximise quality per dollar.  
+* Gives coffee tasters a short-list of origins that maximise quality per dollar.  
 * Altitude overlay shows most top-CQE origins sit in the *High (>1,600 m)* band, validating the terroir narrative buyers use in marketing.
 
 ---
 
 ### **Question 2 — Process-Driven Flavour Comparison**  
 **What we ask**  
-> *Inside those high-CQE origins, how do the three main processing methods — Washed, Natural, Honey — shift the six cupping attributes, and which method adds the most flavour without raising cost?*
+> *Inside those high-CQE origins, how do the three main processing methods — Washed, Natural, Honey — shift the six attributes, and which method adds the most flavour without raising cost?*
 
 #### **How we visualise it**  
 * **Grouped bar chart** (one panel per selected origin).  
